@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+
+buildscript {
+    repositories {
+		google()
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        // classpath "com.android.tools.build:gradle:3.5.2"
+        // classpath 'com.google.gms:google-services:4.3.3'
+
+    }
+}
+
+android {
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+    }
+    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+}
+
+dependencies {
+
+	repositories {
+        google()
+    }
+
+    api project(':extension-api')
+    
+}
