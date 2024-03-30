@@ -14,6 +14,7 @@ buildscript {
 }
 
 android {
+	namespace 'org.haxe.extension.Nativeui'
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
