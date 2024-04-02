@@ -7,7 +7,7 @@ import neko.Lib;
 #end
 
 #if (android)
-import openfl.utils.JNI;
+import nme.JNI;
 #end
 
 

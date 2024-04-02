@@ -9,7 +9,6 @@ buildscript {
     dependencies {
         // classpath "com.android.tools.build:gradle:3.5.2"
         // classpath 'com.google.gms:google-services:4.3.3'
-
     }
 }
 
@@ -32,6 +31,6 @@ dependencies {
         google()
     }
 
-    api project(':extension-api')
+    implementation project(':extension-api')
     
 }
