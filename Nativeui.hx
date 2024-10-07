@@ -7,7 +7,8 @@ import neko.Lib;
 #end
 
 #if (android)
-import nme.JNI;
+ // import nme.JNI;
+import lime.system.JNI;
 #end
 
 
