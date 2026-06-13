@@ -7,8 +7,11 @@ import neko.Lib;
 #end
 
 #if (android)
- // import nme.JNI;
-import lime.system.JNI;
+#if nme
+ import nme.JNI;
+#else
+ import lime.system.JNI;
+#end
 #end
 
 
@@ -32,15 +35,20 @@ class Nativeui {
 	public static function openUrl(url:String):Void {
 		_openUrl_func(url);
 	}
-	
+
+	public static function shareText(text:String, title:String = ""):Void {
+		_shareText_func(text, title);
+	}
+
 	#end
-	
-	
+
+
 	#if (android && openfl)
 	private static var _openUrl_func = JNI.createStaticMethod("org.haxe.extension.Nativeui", "openUrl", "(Ljava/lang/String;)V");
 	private static var _makeToast_func = JNI.createStaticMethod("org.haxe.extension.Nativeui", "makeToast", "(Ljava/lang/String;)V");
 	private static var _showProgressDialog_func = JNI.createStaticMethod( "org.haxe.extension.Nativeui", "showProgressDialog", "(Ljava/lang/String;Z)V");
 	private static var _hideProgressDialog_func = JNI.createStaticMethod("org.haxe.extension.Nativeui", "hideProgressDialog", "()V");
+	private static var _shareText_func = JNI.createStaticMethod("org.haxe.extension.Nativeui", "shareText", "(Ljava/lang/String;Ljava/lang/String;)V");
 	#end
 	
 	

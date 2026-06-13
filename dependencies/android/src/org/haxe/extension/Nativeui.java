@@ -98,6 +98,20 @@ public class Nativeui extends Extension {
 			}
 		});
 	}
+
+	public static void shareText(final String text, final String title)
+	{
+		Extension.mainActivity.runOnUiThread(new Runnable() {
+			public void run() {
+				Intent intent = new Intent(Intent.ACTION_SEND);
+				intent.setType("text/plain");
+				intent.putExtra(Intent.EXTRA_TEXT, text);
+
+				Intent chooser = Intent.createChooser(intent, title != null && !title.isEmpty() ? title : "Bagikan");
+				Extension.mainContext.startActivity(chooser);
+			}
+		});
+	}
 	
 	
 	
